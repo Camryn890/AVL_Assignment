@@ -1,12 +1,11 @@
-public class BinaryTreeNode<dataType>
-{
+public class BinaryTreeNode<dataType>{
 
-    dataType data;
+    Origin data;
     BinaryTreeNode<dataType> left;
     BinaryTreeNode<dataType> right;
     int height;
 
-    public BinaryTreeNode(dataType data, BinaryTreeNode<dataType> left, BinaryTreeNode<dataType> right)
+    public BinaryTreeNode(Origin data, BinaryTreeNode<dataType> left, BinaryTreeNode<dataType> right)
     {
         this.data = data;
         this.left = left;
@@ -18,6 +17,6 @@ public class BinaryTreeNode<dataType>
 
     BinaryTreeNode<dataType> getRight(){return right;}
 
-    dataType getData(){ return data;}
+    Origin getData(){ return data;}
 
 }
