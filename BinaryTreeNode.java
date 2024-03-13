@@ -1,4 +1,5 @@
-public class BinaryTreeNode<dataType>{
+public class BinaryTreeNode<dataType>
+{
 
     dataType data;
     BinaryTreeNode<dataType> left;

@@ -48,7 +48,7 @@ public class BinaryTree<dataType>
         }
     }
 
-    public void inOrder(){ inOrder(root)}
+    public void inOrder(){ inOrder(root);}
     public void inOrder(BinaryTreeNode<dataType> node)
     {
         if(node != null)
