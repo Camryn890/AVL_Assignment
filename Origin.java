@@ -19,11 +19,15 @@ public class Origin implements Comparable<String>{
     {
         return sentence;
     }
+
+    public float getScore()
+    {
+        return score;
+    }
     public void setTerm(String term)
     {
         this.term = term;
     }
-
     public void setSentence(String sentence)
     {
         this.sentence = sentence;
