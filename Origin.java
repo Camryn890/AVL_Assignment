@@ -1,4 +1,4 @@
-public class Origin {
+public class Origin implements Comparable<Origin>{
 
     public String term;
     public String sentence;
@@ -10,7 +10,6 @@ public class Origin {
         this.sentence = sentence;
         this.score = score;
     }
-
     public String getTerm()
     {
         return term;
@@ -28,5 +27,10 @@ public class Origin {
     public void setSentence(String sentence)
     {
         this.sentence = sentence;
+    }
+
+    public int compareTo(Origin other)
+    {
+        return this.getTerm().compareTo(other.getTerm());
     }
 }

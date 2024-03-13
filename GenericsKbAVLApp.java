@@ -8,6 +8,7 @@ public class GenericsKbAVLApp {
 
     private void MakeTree(String file)
     {
+        AVLTree<Origin> tree = new AVLTree<Origin>();
         Scanner files = new Scanner(file);
         while(files.hasNextLine()){
             files.useDelimiter("/t");
@@ -15,6 +16,7 @@ public class GenericsKbAVLApp {
             String sentence = files.next();
             files.useDelimiter("/n");
             float score = files.nextFloat();
+            Origin result = new Origin(term, sentence, score);
             files.nextLine();
 
         }
