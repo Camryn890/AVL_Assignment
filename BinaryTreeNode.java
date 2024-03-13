@@ -14,6 +14,9 @@ public class BinaryTreeNode<dataType>{
     }
 
     BinaryTreeNode<dataType> getLeft(){ return left;}
+
     BinaryTreeNode<dataType> getRight(){return right;}
+
+    dataType getData(){ return data;}
 
 }
