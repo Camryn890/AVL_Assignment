@@ -1,5 +1,5 @@
 
-public class AVLTree <Origin extends Comparable<String>>{
+public class AVLTree <dataType extends Comparable<String>>{
 
     BinaryTreeNode<dataType> root;
 
