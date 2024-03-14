@@ -26,7 +26,11 @@ public class GenericsKbAVLApp {
             }
             files.close();
         }
-        catch(FileNotFoundException e) {System.out.println("Please try again.");}
+        catch(FileNotFoundException e) 
+        {
+            System.out.println("Please try again.");
+            System.exit(0);
+        }
     }
 
     public void searchItem(String file)
@@ -36,17 +40,22 @@ public class GenericsKbAVLApp {
             Scanner filename = new Scanner(files);
             while(filename.hasNextLine())
             {
-                String item = filename.next();
-                Origin search = new Origin(item,null,0);
-                BinaryTreeNode<Origin> found = tree.find(search);
-                if(tree.find(search) != null)
-                {
-                    System.out.println(found.getData().getTerm() +": " + found.getData().getSentence() + "(" + found.getData().getScore()+")");
+                if(filename.hasNext()){
+                    String item = filename.next();
+                    Origin search = new Origin(item,null,0);
+                    BinaryTreeNode<Origin> found = tree.find(search);
+                    if(found != null)
+                    {
+                        System.out.println(found.getData().getTerm() +": " + found.getData().getSentence() + "(" + found.getData().getScore()+")");
+                    }
+                    else{System.out.println("Item not found : " + item);}
                 }
-                else{System.out.println("Item not found");}
             }
             filename.close();
         }
-        catch(FileNotFoundException e){System.out.println("Please try again.");}
+        catch(FileNotFoundException e)
+        {
+            System.out.println("Please try again.");
+        }
     }
 }

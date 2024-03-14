@@ -66,7 +66,7 @@ public class AVLTree <dataType extends Comparable<String>>{
         {
             return new BinaryTreeNode<dataType>(data, null,null);
         }
-        if(data.compareTo(node.getData().getTerm()) <= 0 )
+        if(data.getTerm().compareTo(node.getData().getTerm()) <= 0 )
         {
             node.left = insert(data, node.left);
         }
@@ -78,11 +78,11 @@ public class AVLTree <dataType extends Comparable<String>>{
     public BinaryTreeNode<dataType> delete(Origin data, BinaryTreeNode<dataType> node)
     {
         if(node == null){ return null;}
-        if(data.compareTo(node.getData().getTerm()) < 0)
+        if(data.getTerm().compareTo(node.getData().getTerm()) < 0)
         {
             node.left = insert(data, node.getLeft());
         }
-        else if(data.compareTo(node.getData().getTerm()) > 0)
+        else if(data.getTerm().compareTo(node.getData().getTerm()) > 0)
         {
             node.right = delete(data, node.getRight());
         }
@@ -120,16 +120,15 @@ public class AVLTree <dataType extends Comparable<String>>{
     }
     public BinaryTreeNode<dataType> find ( Origin data, BinaryTreeNode<dataType> node)
     {
-        if(data.compareTo(node.getData().getTerm()) == 0){ return node;}
-        else if(data.compareTo(node.getData().getTerm()) <0)
+        if(data.getTerm().compareTo(node.getData().getTerm()) == 0){ return node;}
+        else if(data.getTerm().compareTo(node.getData().getTerm()) <0)
         {
             return(node.left == null) ? null : find(data, node.left);
         }
-        else if(data.compareTo(node.getData().getTerm()) <0)
+        else
         {
             return(node.right == null) ? null : find(data, node.right);
         }
-        else{ return null;}
 
     }
 

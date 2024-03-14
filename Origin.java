@@ -35,6 +35,6 @@ public class Origin implements Comparable<String>{
 
     public int compareTo(String other)
     {
-        return this.getTerm().compareTo(other);
+        return this.compareTo(other);
     }
 }
