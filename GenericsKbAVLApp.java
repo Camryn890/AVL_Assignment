@@ -3,29 +3,28 @@ import java.io.File;
 import java.io.FileNotFoundException;
 public class GenericsKbAVLApp {
 
-    AVLTree<Origin> tree = new AVLTree<Origin>();
-    GenericsKbAVLApp(String file)
-    {
-        tree = new AVLTree<Origin>();
-        MakeTree(file);
-    }
-
-    private void MakeTree(String file)
+    public AVLTree<Origin> tree = new AVLTree<>();
+    public void MakeTree(String file)
     {
         try {
             File filename = new File(file);
             Scanner files = new Scanner(filename);
             while (files.hasNextLine()) {
-                files.useDelimiter("/t");
+                
+                files.useDelimiter("\t");
                 String term = files.next();
+
                 String sentence = files.next();
-                files.useDelimiter("/n");
-                float score = files.nextFloat();
+
+                files.useDelimiter("\n");
+                float score = Float.parseFloat(files.next());
+
                 Origin result = new Origin(term, sentence, score);
                 tree.insert(result);
                 files.nextLine();
 
             }
+            files.close();
         }
         catch(FileNotFoundException e) {System.out.println("Please try again.");}
     }
@@ -39,12 +38,14 @@ public class GenericsKbAVLApp {
             {
                 String item = filename.next();
                 Origin search = new Origin(item,null,0);
+                BinaryTreeNode<Origin> found = tree.find(search);
                 if(tree.find(search) != null)
                 {
-                    BinaryTreeNode<dataType> found = tree.find(search);
                     System.out.println(found.getData().getTerm() +": " + found.getData().getSentence() + "(" + found.getData().getScore()+")");
-                };
+                }
+                else{System.out.println("Item not found");}
             }
+            filename.close();
         }
         catch(FileNotFoundException e){System.out.println("Please try again.");}
     }

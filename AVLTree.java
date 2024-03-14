@@ -125,7 +125,12 @@ public class AVLTree <dataType extends Comparable<String>>{
         {
             return(node.left == null) ? null : find(data, node.left);
         }
-        else{return(node.right == null) ? null : find(data, node.right);}
+        else if(data.compareTo(node.getData().getTerm()) <0)
+        {
+            return(node.right == null) ? null : find(data, node.right);
+        }
+        else{ return null;}
+
     }
 
     public void treeOrder(BinaryTreeNode<dataType> node , int level)
