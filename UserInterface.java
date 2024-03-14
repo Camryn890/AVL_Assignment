@@ -22,24 +22,32 @@ public class UserInterface {
                 System.out.println("Enter second file name");
                 String filename2 = scanner.nextLine();
                 add.searchItem(filename2);
+                add.counters();
+
+                System.out.println("Do you want to enter a new file (y/n)");
+                choice1 = scanner.nextLine();
                 do{
-                    System.out.println("Do you want to enter a new file (y/n)");
-                    choice1 = scanner.nextLine();
+                    if(choice1.equals("n")){break;}
+                    System.out.println("Which file would you like to change (1 or 2 )");
+                    int choice2 = scanner.nextInt();
                     scanner.nextLine();
-                    if(choice1.equals("y"))
-                    {
-                        System.out.println("which file would you like to change (1 or 2 )");
-                        int choice2 = scanner.nextInt();
-                        scanner.nextLine();
-                        if(choice2 ==1){
-                            System.out.println("Enter first file name");
-                            filename1 = scanner.nextLine();
-                        }
-                        else{System.out.println("Enter second file name");}
-                        filename2 = scanner.nextLine();  
+
+                    if(choice2 ==1){
+                        System.out.println("Enter first file name");
+                        filename1 = scanner.nextLine();
+                    }
+
+                    else{
+                        System.out.println("Enter second file name");
+                        filename2 = scanner.nextLine();
+                    }
+  
                     add.MakeTree(filename1);
                     add.searchItem(filename2);
-                    }
+                    add.counters();
+                    System.out.println("Do you want to enter a new file (y/n)");
+                    choice1 = scanner.nextLine();
+                    
                 }while(!choice1.equals("n"));
             }while(!choice1.equals("n"));
         }while(!choice.equals("Q"));

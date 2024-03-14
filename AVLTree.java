@@ -2,6 +2,8 @@
 public class AVLTree <dataType extends Comparable<String>>{
 
     BinaryTreeNode<dataType> root;
+    public static int count = 0;
+    public static int counter = 0;
 
     AVLTree(){ root = null;}
     public int height(BinaryTreeNode<dataType> node)
@@ -68,9 +70,10 @@ public class AVLTree <dataType extends Comparable<String>>{
         }
         if(data.getTerm().compareTo(node.getData().getTerm()) <= 0 )
         {
+            counter++;
             node.left = insert(data, node.left);
         }
-        else{ node.right = insert(data, node.right);}
+        else{ counter++; node.right = insert(data, node.right);}
         return balance(node);
     }
 
@@ -120,13 +123,15 @@ public class AVLTree <dataType extends Comparable<String>>{
     }
     public BinaryTreeNode<dataType> find ( Origin data, BinaryTreeNode<dataType> node)
     {
-        if(data.getTerm().compareTo(node.getData().getTerm()) == 0){ return node;}
+        if(data.getTerm().compareTo(node.getData().getTerm()) == 0){count++; return node;}
         else if(data.getTerm().compareTo(node.getData().getTerm()) <0)
         {
+            count++;
             return(node.left == null) ? null : find(data, node.left);
         }
         else
         {
+            count++;
             return(node.right == null) ? null : find(data, node.right);
         }
 
