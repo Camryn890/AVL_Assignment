@@ -1,6 +1,14 @@
 import java.util.Scanner;
 
+/**
+ * This class is a user interface that uses the GenericsKbAVLApp class to perform search operations
+ */
 public class UserInterface {
+
+    /**
+     * The main method that runs the user interface
+     * @param args args Command-line arguments
+     */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         GenericsKbAVLApp add = new GenericsKbAVLApp();
@@ -53,4 +61,9 @@ public class UserInterface {
         }while(!choice.equals("Q"));
         scanner.close();
     }
+
+    /**
+     * no specific behaviour
+     */
+    public UserInterface() {}
 }
